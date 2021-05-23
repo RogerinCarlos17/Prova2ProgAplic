@@ -1,0 +1,69 @@
+#include <iostream>
+#include <fstream>
+#include <clocale>
+
+
+using namespace std;
+
+int main(){
+    setlocale (LC_ALL, "portuguese");
+
+    int *ponteiro1;
+    int *ponteiro2;
+    int x,num,maxi,mini,*enderecoMax,*enderecoMin;
+
+    cout << "Informe a quantidade de números que você deseja na sua cadeia: ";
+    cin >> x;
+    int vetnum[x];
+    int vetnum2[x];
+    ponteiro1 = &vetnum[x];
+    ponteiro2 = &vetnum2[x];
+    enderecoMax = &maxi;
+    enderecoMin = &mini;
+
+
+    for(int i=0;i<x;i++){
+        cout << "Informe os números:";
+        cin >> num;
+        vetnum[i]=num;
+        vetnum2[i]=num;
+
+
+
+    }
+    cout << "Seu vetor é:";
+    for(int i=0;i<x;i++){
+
+    cout << vetnum[i] << ";";
+    }
+    cout << " "<<endl;
+    int vetmax[1];
+    int i=0;
+    for(int i=0;i<x-1;i++){
+    if(vetnum[i]<vetnum[i+1]){
+    vetmax[0]=vetnum[i+1];
+    }else{
+    vetmax[0]=vetnum[i];
+    vetnum[i+1]=vetnum[i];
+    }
+    }
+    maxi=vetmax[0];
+    cout << "O valor máximo é: " << maxi << endl;
+
+
+
+    for(int i=0;i<x-1;i++){
+    if(vetnum2[i]<vetnum2[i+1]){
+    vetmax[0]=vetnum2[i];
+    vetnum2[i+1]=vetnum2[i];
+    }else{
+    vetmax[0]=vetnum2[i+1];
+
+    }
+    }
+    mini=vetmax[0];
+    cout << "O valor mínimo é: " << mini;
+
+
+return 0;
+}
